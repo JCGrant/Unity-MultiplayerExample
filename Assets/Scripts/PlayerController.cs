@@ -3,8 +3,14 @@ using UnityEngine.Networking;
 
 public class PlayerController : NetworkBehaviour {
 
+    public GameObject bulletPrefab;
+    public Transform bulletSpawn;
+
     private float playerRotateSpeed = 150.0f;
     private float playerMoveSpeed = 3.0f;
+
+    private float bulletSpeed = 6;
+    private float bulletDeathTime = 2.0f;
 
     void Update() {
         if (!isLocalPlayer) {
@@ -16,6 +22,18 @@ public class PlayerController : NetworkBehaviour {
 
         transform.Rotate(0, x, 0);
         transform.Translate(0, 0, z);
+
+        if (Input.GetKeyDown(KeyCode.Space)) {
+            Fire();
+        }
+    }
+
+    private void Fire() {
+        var bullet = (GameObject)Instantiate(bulletPrefab,
+                                             bulletSpawn.position,
+                                             bulletSpawn.rotation);
+        bullet.GetComponent<Rigidbody>().velocity = bullet.transform.forward * bulletSpeed;
+        Destroy(bullet, bulletDeathTime);
     }
 
     public override void OnStartLocalPlayer() {
