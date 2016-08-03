@@ -12,6 +12,9 @@ GameObject:
   - 135: {fileID: 13521250}
   - 23: {fileID: 2303642}
   - 54: {fileID: 5431324}
+  - 114: {fileID: 11404020}
+  - 114: {fileID: 11493596}
+  - 114: {fileID: 11452518}
   m_Layer: 0
   m_Name: Bullet
   m_TagString: Untagged
@@ -79,6 +82,69 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &11404020
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 191298}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 372142912, guid: 870353891bb340e2b2a9c8707e7419ba, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_SceneId:
+    m_Value: 0
+  m_AssetId:
+    i0: 117
+    i1: 240
+    i2: 213
+    i3: 114
+    i4: 250
+    i5: 66
+    i6: 116
+    i7: 251
+    i8: 9
+    i9: 201
+    i10: 127
+    i11: 15
+    i12: 94
+    i13: 177
+    i14: 183
+    i15: 227
+  m_ServerOnly: 0
+  m_LocalPlayerAuthority: 0
+--- !u!114 &11452518
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 191298}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b553eba5143a74966b41267d04b55760, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &11493596
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 191298}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -1768714887, guid: 870353891bb340e2b2a9c8707e7419ba, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_TransformSyncMode: 3
+  m_SendInterval: 0
+  m_SyncRotationAxis: 7
+  m_RotationSyncCompression: 0
+  m_SyncSpin: 0
+  m_MovementTheshold: 0.001
+  m_SnapThreshold: 5
+  m_InterpolateRotation: 1
+  m_InterpolateMovement: 1
 --- !u!135 &13521250
 SphereCollider:
   m_ObjectHideFlags: 1
