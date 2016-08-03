@@ -18,4 +18,8 @@ public class PlayerController : NetworkBehaviour {
         transform.Translate(0, 0, z);
     }
 
+    public override void OnStartLocalPlayer() {
+        GetComponent<MeshRenderer>().material.color = Color.blue;
+    }
+
 }
