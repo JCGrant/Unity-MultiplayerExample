@@ -10,6 +10,8 @@ public class Health : NetworkBehaviour {
     [SyncVar(hook = "OnChangeHealth")]
     public int currentHealth = maxHealth;
 
+    public bool destroyOnDeath;
+
     private Vector3 playerStartPosition = Vector3.zero;
 
     public void TakeDamage(int amount) {
@@ -18,6 +20,14 @@ public class Health : NetworkBehaviour {
         }
         currentHealth -= amount;
         if (currentHealth <= 0) {
+            Die();
+        }
+    }
+
+    private void Die() {
+        if (destroyOnDeath) {
+            Destroy(gameObject);
+        } else {
             currentHealth = maxHealth;
             RpcRespawn();
         }

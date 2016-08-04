@@ -439,6 +439,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   healthBar: {fileID: 22422558}
   currentHealth: 100
+  destroyOnDeath: 1
 --- !u!136 &13609880
 CapsuleCollider:
   m_ObjectHideFlags: 1
