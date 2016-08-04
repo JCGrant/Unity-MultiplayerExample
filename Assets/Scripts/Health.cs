@@ -10,18 +10,28 @@ public class Health : NetworkBehaviour {
     [SyncVar(hook = "OnChangeHealth")]
     public int currentHealth = maxHealth;
 
+    private Vector3 playerStartPosition = Vector3.zero;
+
     public void TakeDamage(int amount) {
         if (!isServer) {
             return;
         }
         currentHealth -= amount;
         if (currentHealth <= 0) {
-            currentHealth = 0;
-            Debug.Log("Dead!");
+            currentHealth = maxHealth;
+            RpcRespawn();
         }
     }
 
     void OnChangeHealth(int health) {
         healthBar.sizeDelta = new Vector2(health, healthBar.sizeDelta.y);
+    }
+
+    // Called on the Server, but invoked on the Client
+    [ClientRpc]
+    void RpcRespawn() {
+        if (isLocalPlayer) {
+            transform.position = playerStartPosition;
+        }
     }
 }
